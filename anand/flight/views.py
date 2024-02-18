@@ -14,6 +14,5 @@ class CreateFlight(APIView, FlightManager):
             return Response(serializer.data, status=200)
         return Response(serializer.errors, status=400)
 
-
 class SearchAvailableFlight(APIView, FlightManager):
     pass
