@@ -40,7 +40,13 @@ INSTALLED_APPS = [
     'users',
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
-    'flight'
+    'flight',
+    'airport',
+    'aircraft',
+    'booking',
+    'crew',
+    'passanger',
+    'payment'
 ]
 
 MIDDLEWARE = [

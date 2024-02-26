@@ -18,12 +18,12 @@ class IsVerified(BasePermission):
             return False
         return True
     
-    
-class IsAdminOrOwner(BasePermission):
-    SAFE_METHODS = ['POST', 'GET', 'PATCH', 'PUT', 'DELETE']
+class IsOwner(BasePermission):
+    SAFE_METHODS = ['POST', 'GET']
     def has_permission(self, request, view):
+        print(f'request object {request}')
         user = CustomUser.objects.get(email=request.user)
-        print(user)
-        if request.method in self.SAFE_METHODS and not user.is_verified or user != request.user:
-            return False
+        if request.method in self.SAFE_METHODS:
+            if str(request.user) != str(user.email):
+                return False
         return True
